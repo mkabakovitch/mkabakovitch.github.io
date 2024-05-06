@@ -2,21 +2,19 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Michail Kabakovitch on GitHub",
+  title: "Michail Kabakovitch",
   description: "An entry point for GitHub pages of all public repositories",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Home', link: '/' }
     ],
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Get Started',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'About', link: '/about' },
         ]
       }
     ],
