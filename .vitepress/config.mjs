@@ -26,7 +26,7 @@ export default defineConfig({
       text: 'Edit this page on GitHub'
     },
     footer: {
-      message: 'This is public information, feel free to use it.',
+      message: 'This information is public, feel free to use it.',
       copyright: 'Copyright © 2024 Michail Kabakovitch'
     },
     lastUpdated: {

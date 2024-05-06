@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Michail Kabakovitch on GitHub"
   text: "An entry point for GitHub pages of all public repositories"
-  tagline: My great project tagline
+  tagline: Feel free to explore
   actions:
     - theme: brand
       text: Explore Repositories
