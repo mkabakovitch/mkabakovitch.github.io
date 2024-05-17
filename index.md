@@ -6,6 +6,7 @@ hero:
   name: "Michail Kabakovitch on GitHub"
   text: "An entry point for GitHub pages of all public repositories"
   tagline: Feel free to explore
+  image: /assets/logos/folder.png  
   actions:
     - theme: brand
       text: Explore Repositories
