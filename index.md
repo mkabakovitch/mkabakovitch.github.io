@@ -18,5 +18,5 @@ features:
   - title: Dummy CAP Service
     details: Simple service consuming Dummy Node.js package and build with CAP
   - title: Tips and Tricks
-    details: Some information for improving pruductivity
+    details: Some information for improving development productivity
 ---
