@@ -23,6 +23,12 @@ export default defineConfig({
           { text: 'Markdown', link: '/markdown' },
           { text: 'Development Environment', link: '/development-environment' }
         ]
+      },
+      {
+        text: 'Knowledge Base',
+        items: [
+          { text: 'CAP', link: '/cap' }
+        ]
       }
     ],
     socialLinks: [
