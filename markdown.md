@@ -1,10 +1,12 @@
 # Markdown
 
+This section contains information helping to improve documentation structure and readability.
+
 ## Markdown extensions
 
-VitePress markdown extenations: https://vitepress.dev/guide/markdown
+VitePress comes with some markdown extentions: https://vitepress.dev/guide/markdown
 
-## Fenced code blocks
+## How to escape fenced code blocks
 
 Escape fensed code blocks with quadruple backticks: ` ```` `.
 
