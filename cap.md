@@ -34,4 +34,14 @@ modules:
 
 Specifying a route prevents the MTA deployer from creating the default one.
 
+A quick reference how `default-*` parameters are composed:
+
+```YAML
+default-host: ${default-host}     # usually generated using the [org-name]-[space-name]-[module-name]
+default-domain: ${default-domain} # default shared domain of the landscape
+default-uri: ${default-uri}       # composed by ${default-host}.${default-domain}
+protocol: ${protocol}             # usually defaults to "https"
+default-url: ${default-url}       # composed of ${protocol}://${default-uri}
+```
+
 Source: https://github.com/SAP-samples/cf-mta-examples/blob/main/app-routes/mta.yaml
