@@ -6,7 +6,7 @@ Sometimes the default route created for a service can be not very nice, e.g. if 
 
 Instead of using `${default-url}` for `srv-url`, which is added by default:
 
-```yaml{7} [mta.yaml]
+```YAML{7} [mta.yaml]
 modules:
   - name: module-srv
     ...
@@ -18,7 +18,7 @@ modules:
 
 Override `srv-url` and add a route specifying required URL:
 
-```yaml{7,10-11} [mta.yaml]
+```YAML{7,10-11} [mta.yaml]
 modules:
   - name: module-srv
     ...
