@@ -8,7 +8,7 @@ Source: https://lifehacker.com/tech/show-hidden-files-on-mac
 
 ## How to clean working directory
 
-To clean working directory removing untracked files run:
+To clean working directory including removing ignoded files (specified in `.gitignore` file) run, :
 
 ```Shell
 git clean -dxf
@@ -16,6 +16,9 @@ git clean -dxf
 
 - `-d` recurses into subrirectories
 - `-f` forces deletion
-- `-x` allows removing untracked files
+- `-x` allows removing ignored files
+
+> [!TIP]
+> Specify `-n` option for previewing changes: `git clean -dxfn`
 
 Source: https://git-scm.com/docs/git-clean

@@ -14,7 +14,14 @@ export default defineConfig({
       {
         text: 'Get Started',
         items: [
-          { text: 'About', link: '/about' },
+          { text: 'About', link: '/about' }
+        ]
+      },
+      {
+        text: 'Tips and Tricks',
+        items: [
+          { text: 'Markdown', link: '/markdown' },
+          { text: 'Development Environment', link: '/development-environment' }
         ]
       }
     ],

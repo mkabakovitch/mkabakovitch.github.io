@@ -1,5 +1,9 @@
 # Markdown
 
+## Markdown extensions
+
+VitePress markdown extenations: https://vitepress.dev/guide/markdown
+
 ## Fenced code blocks
 
 Escape fensed code blocks with quadruple backticks: ` ```` `.
