@@ -23,7 +23,7 @@ In addition, in order to enable programmatic access (using API Remote Call), an 
 
 Endpoints are configured either using service keys or as destinations in environments involved into transport management activities, depending on where they are called from.
 
-For automated workflows, where no manual activities are required, the "[...directly in an Application](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/set-up-environment-to-transport-content-archives-directly-in-application)" approach must be used. This term lokks confusing, but it is used across Cloud Transport Management documentation.
+For automated workflows, where no manual activities are required, the "[...directly in an Application](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/set-up-environment-to-transport-content-archives-directly-in-application)" approach must be used. This term looks confusing, but it is used across Cloud Transport Management documentation.
 
 Before any object (transport nodes, transport routes, etc.) is created in Cloud Transport Management, it is required to create corresponding destinations in the subaccount where Cloud Transport Management service is subscribed. These destinations which will be used by Cloud Transport Management to bind transport nodes with the target environments.
 
