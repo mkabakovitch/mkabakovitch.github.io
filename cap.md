@@ -44,4 +44,4 @@ protocol: ${protocol}             # usually defaults to "https"
 default-url: ${default-url}       # composed of ${protocol}://${default-uri}
 ```
 
-Source: https://github.com/SAP-samples/cf-mta-examples/blob/main/app-routes/mta.yaml
+Source: [SAP-samples/cf-mta-examples/app-routes/mta.yaml](https://github.com/SAP-samples/cf-mta-examples/blob/main/app-routes/mta.yaml)
