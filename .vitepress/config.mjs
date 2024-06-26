@@ -27,7 +27,8 @@ export default defineConfig({
       {
         text: 'Knowledge Base',
         items: [
-          { text: 'CAP', link: '/cap' }
+          { text: 'CAP', link: '/cap' },
+          { text: 'DevOps', link: '/devops' }
         ]
       }
     ],
