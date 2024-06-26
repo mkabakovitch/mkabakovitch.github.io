@@ -2,10 +2,6 @@
 
 This section contains information about topics related to development operations.
 
-## Resources
-
-[SAP Continuous Integration and Delivery](https://help.sap.com/docs/continuous-integration-and-delivery)
-
 ## How to set up SAP Cloud Transport Management service
 
 SAP Cloud Transport Management service is used to transport artefacts (e.g. MTA archives, content or even entire sites in SAP Build Work Zone, standard edition) between different environments.
@@ -33,17 +29,31 @@ Before any object (transport nodes, transport routes, etc.) is created in Cloud 
 
 ### Configuring environments for integration with Cloud Management Service
 
-For every subaccount, where with Cloud Management Service deploys artefacts, a dedicated destination must be created in the subassount where with Cloud Management Service is subscribed. These destinations point to the deployment services running in the target subaccounts. The deployment services are already there, there is no need to create them. See [Creating Destinations Using SAP Cloud Deployment Service with OAuth2Password Authentication](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/creating-destinations-using-sap-cloud-deployment-service-with-oauth2password-authentication).
+For every subaccount, where with Cloud Management Service deploys artefacts (a so-called **target** subaccount), a dedicated destination must be created in the subassount where with Cloud Management Service is subscribed. These destinations point to the deployment services running in the target subaccounts. The deployment services are already there, there is no need to create them. See [Creating Destinations Using SAP Cloud Deployment Service with OAuth2Password Authentication](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/creating-destinations-using-sap-cloud-deployment-service-with-oauth2password-authentication).
 
 > [!WARNING]
 > OAuth2Password must be avoid. Instead, it must be possible to use [Content Agent](https://discovery-center.cloud.sap/serviceCatalog/content-agent) service for transporting MTA archives. See [Creating Destinations Using SAP Content Agent Service](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/creating-destinations-using-sap-content-agent-service). Unfortunately, I could not get it working *yet*.
 
 ### Settung up landscape in Cloud Transport Management
 
+The landscape in Cloud Transport Management may resemble development and delivery landscape as described in [Delivering Applications](https://help.sap.com/docs/btp/best-practices/delivering-applications) section of [Best Practices for SAP BTP](https://help.sap.com/docs/btp/best-practices/best-practices-for-sap-btp) guide. The landscape may contain dedicated transport nodes for **Development**, **Test**, **Pre-Production** and **Production** environments. For every content type to be transported (either uploaded or deployed) by Cloud Transport Management a dedicated transport node must be created. For instance, **production-mta** for deploying MTA archives into **Produciton** subaccount and **produciotn-content** for transporting SAP Build Work Zone, standard edtion content and sites into **Production** subaccount.
+
+The idea is to let the artefacts to be uploaded to **development-\*** nodes and then be forwadred to **test-\*** and then further to **production-\*** and **production-\*** nodes. Importing artefacts into any  node (except of **development-\***) will cause the artefacts to be deployed into correspoinding environment. In order to prevent deployment a node must be specified as **virtual**. For such nodes no destination can be specified, meaning no deployment will take place when artefacts are inmorted into the node. This is exactly what is needed for **development-\*** nodes.
+
 ### Setting up upload of MTA archives from Continuous Integration and Delivery service into Cloud Management Service
 
 Uploading MTA archives is done directly from the Continuous Integration and Delivery service by using a service key for the Cloud Transport Management service stored as credentials. See See [Creating a Service Instance and a Service Key](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/creating-service-instance-and-service-key) and [Integrate Cloud Transport Management into Your Job](https://help.sap.com/docs/continuous-integration-and-delivery/sap-continuous-integration-and-delivery/integrate-cloud-transport-management-into-your-job#connect-your-job-with-sap-cloud-transport-management). No destinations in any subaccount are involved.
 
-### Setting up uplod of content and sites from SAP Build Work Zone, standard edition into  Cloud Management Service
+### Setting up upload of content and sites from SAP Build Work Zone, standard edition into  Cloud Management Service
 
 There is no need to subscribe to SAP Cloud Transport Management service in the source environment. Only a destination having exact name **ctms_destination** must be created in the source environment as described in [Integrate SAP Cloud Transport Management Service](https://help.sap.com/docs/build-work-zone-standard-edition/sap-build-work-zone-standard-edition/integrate-sap-cloud-transport-management-service).
+
+### Resources
+
+Product pages and other articles mentioned in this guide:
+
+- [SAP Build Work Zone, standard edition](https://help.sap.com/docs/build-work-zone-standard-edition/sap-build-work-zone-standard-edition/what-is-sap-build-work-zone-standard-edition)
+- [SAP Continuous Integration and Delivery](https://help.sap.com/docs/continuous-integration-and-delivery)
+- [SAP Cloud Transport Management](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/what-is-sap-cloud-transport-management)
+- [Best Practices for SAP BTP](https://help.sap.com/docs/btp/best-practices/best-practices-for-sap-btp)
+- [DevOps topic in SAP Community](https://pages.community.sap.com/topics/devops)
