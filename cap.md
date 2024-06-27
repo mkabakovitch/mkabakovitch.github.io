@@ -25,23 +25,23 @@ modules:
     provides:
       - name: srv-api
         properties:
-          srv-url: ${protocol}://${org}-${space}-bpc.${default-domain}
+          srv-url: ${protocol}://${org}-${space}-[required-module-name].${default-domain}
     parameters:
       ...
       routes:
-        - route: ${protocol}://${org}-${space}-bpc.${default-domain}
+        - route: ${protocol}://${org}-${space}-[required-module-name].${default-domain}
 ```
 
 Specifying a route prevents the MTA deployer from creating the default one.
 
-A quick reference how `default-*` parameters are composed:
+A quick reference how parameters are composed:
 
-```YAML
-default-host: ${default-host}     # usually generated using the [org-name]-[space-name]-[module-name]
-default-domain: ${default-domain} # default shared domain of the landscape
-default-uri: ${default-uri}       # composed by ${default-host}.${default-domain}
-protocol: ${protocol}             # usually defaults to "https"
-default-url: ${default-url}       # composed of ${protocol}://${default-uri}
-```
+| Parameter           | Description                                                       |
+| ------------------- | ----------------------------------------------------------------- |
+| `${default-host}`   | Usually generated using the `org-name`-`space-name`-`module-name` |
+| `${default-domain}` | Default shared domain of the landscape                            |
+| `${default-uri}`    | Composed by `${default-host}`.`${default-domain}`                 |
+| `${default-url}`    | Composed of `${protocol}`://`${default-uri}`                      |
+| `${protocol}`       | Usually defaults to `https`                                       |
 
 Source: [SAP-samples/cf-mta-examples/app-routes/mta.yaml](https://github.com/SAP-samples/cf-mta-examples/blob/main/app-routes/mta.yaml)
