@@ -36,12 +36,12 @@ Specifying a route prevents the MTA deployer from creating the default one.
 
 A quick reference how parameters are composed:
 
-| Parameter           | Description                                                       |
-| ------------------- | ----------------------------------------------------------------- |
-| `${default-host}`   | Usually generated using the `org-name`-`space-name`-`module-name` |
-| `${default-domain}` | Default shared domain of the landscape                            |
-| `${default-uri}`    | Composed by `${default-host}`.`${default-domain}`                 |
-| `${default-url}`    | Composed of `${protocol}`://`${default-uri}`                      |
-| `${protocol}`       | Usually defaults to `https`                                       |
+| Parameter           | Description                                                                        |
+| ------------------- | ---------------------------------------------------------------------------------- |
+| `${default-host}`   | Usually generated using the `org-name`-`space-name`-`module-name`                  |
+| `${default-domain}` | Default shared domain of the landscape, e.g. **cfapps.us10-001.hana.ondemand.com** |
+| `${default-uri}`    | Composed as `${default-host}`.`${default-domain}`                                  |
+| `${default-url}`    | Composed as `${protocol}`://`${default-uri}`                                       |
+| `${protocol}`       | Usually defaults to `https`                                                        |
 
 Source: [SAP-samples/cf-mta-examples/app-routes/mta.yaml](https://github.com/SAP-samples/cf-mta-examples/blob/main/app-routes/mta.yaml)
