@@ -38,10 +38,10 @@ A quick reference how placehoders are composed:
 
 | Placeholder         | Description                                                                        |
 | ------------------- | ---------------------------------------------------------------------------------- |
-| `${default-host}`   | Usually generated using the **org-name**-**space-name**-**module-name**            |
+| `${default-host}`   | Usually generated using the `org-name`-`space-name`-`module-name`                  |
 | `${default-domain}` | Default shared domain of the landscape, e.g. **cfapps.us10-001.hana.ondemand.com** |
-| `${default-uri}`    | Composed as **${default-host}.${default-domain}**                                  |
-| `${default-url}`    | Composed as **${protocol}://${default-uri}**                                       |
+| `${default-uri}`    | Composed as `${default-host}`.`${default-domain}`                                  |
+| `${default-url}`    | Composed as `${protocol}`://`${default-uri}`                                       |
 | `${protocol}`       | Usually defaults to **https**                                                      |
 
 Source: [MultiApps Controller Wiki](https://github.com/cloudfoundry/multiapps-controller/wiki/Supported-Parameters#placeholders)
