@@ -31,7 +31,7 @@ Before any object (transport nodes, transport routes, etc.) is created in Cloud 
 
 For every subaccount, where with Cloud Management Service deploys artefacts (a so-called **target** subaccount), a dedicated destination must be created in the subassount where with Cloud Management Service is subscribed. These destinations point to the services responsible for deployment and running in the target subaccounts:
 
-- In case of MTA artefacts, the deployment services are already there, there is no need to create them. See [Creating Destinations Using SAP Cloud Deployment Service with OAuth2Password Authentication](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/creating-destinations-using-sap-cloud-deployment-service-with-oauth2password-authentication).
+- In case of MTA artefacts, the deployment services are already there, there is no need to create them. See [Creating Destinations Using SAP Cloud Deployment Service with OAuth2Password Authentication](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/creating-destinations-using-sap-cloud-deployment-service-with-oauth2password-authentication) or [Creating Destinations Using SAP Cloud Deployment Service with Basic Authentication](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/creating-destinations-using-sap-cloud-deployment-service-with-basic-authentication).
 - In case of content and sites from SAP Build Work Zone, the service responsible for deployment is an instance of SAP Build Work zone, standard edition service.
 
 > [!WARNING]
@@ -58,5 +58,6 @@ Product pages and other articles mentioned in this guide:
 - [SAP Build Work Zone, standard edition](https://help.sap.com/docs/build-work-zone-standard-edition/sap-build-work-zone-standard-edition/what-is-sap-build-work-zone-standard-edition)
 - [SAP Continuous Integration and Delivery](https://help.sap.com/docs/continuous-integration-and-delivery)
 - [SAP Cloud Transport Management](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/what-is-sap-cloud-transport-management)
+- [SAP Content Agent Service](https://help.sap.com/docs/content-agent-service)
 - [Best Practices for SAP BTP](https://help.sap.com/docs/btp/best-practices/best-practices-for-sap-btp)
 - [DevOps topic in SAP Community](https://pages.community.sap.com/topics/devops)
