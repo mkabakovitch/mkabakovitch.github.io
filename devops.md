@@ -35,7 +35,7 @@ For every subaccount, where with Cloud Management Service deploys artefacts (a s
 - In case of content and sites from SAP Build Work Zone, the service responsible for deployment is an instance of SAP Build Work zone, standard edition service.
 
 > [!WARNING]
-> OAuth2Password must be avoided. Instead, it must be possible to use [Content Agent](https://discovery-center.cloud.sap/serviceCatalog/content-agent) service for transporting MTA archives. See [Creating Destinations Using SAP Content Agent Service](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/creating-destinations-using-sap-content-agent-service). Unfortunately, I could not get it working _yet_.
+> OAuth2Password and BasicAuthentication types must be avoided. Instead, it must be possible to use [Content Agent](https://discovery-center.cloud.sap/serviceCatalog/content-agent) service for transporting MTA archives. See [Creating Destinations Using SAP Content Agent Service](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/creating-destinations-using-sap-content-agent-service). Unfortunately, I could not get it working _yet_ because of the "**Content validation has failed. Kindly check the Mtar and descriptor files. Number of modules are different in mtad and manifest file.**" error.
 
 ### Settung up landscape in Cloud Transport Management
 
