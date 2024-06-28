@@ -34,14 +34,14 @@ modules:
 
 Specifying a route prevents the MTA deployer from creating the default one.
 
-A quick reference how parameters are composed:
+A quick reference how placehoders are composed:
 
-| Parameter           | Description                                                                        |
+| Placeholder         | Description                                                                        |
 | ------------------- | ---------------------------------------------------------------------------------- |
-| `${default-host}`   | Usually generated using the `org-name`-`space-name`-`module-name`                  |
+| `${default-host}`   | Usually generated using the **org-name**-**space-name**-**module-name**            |
 | `${default-domain}` | Default shared domain of the landscape, e.g. **cfapps.us10-001.hana.ondemand.com** |
-| `${default-uri}`    | Composed as `${default-host}`.`${default-domain}`                                  |
-| `${default-url}`    | Composed as `${protocol}`://`${default-uri}`                                       |
-| `${protocol}`       | Usually defaults to `https`                                                        |
+| `${default-uri}`    | Composed as **${default-host}.${default-domain}**                                  |
+| `${default-url}`    | Composed as **${protocol}://${default-uri}**                                       |
+| `${protocol}`       | Usually defaults to **https**                                                      |
 
-Source: [SAP-samples/cf-mta-examples/app-routes/mta.yaml](https://github.com/SAP-samples/cf-mta-examples/blob/main/app-routes/mta.yaml)
+Source: [MultiApps Controller Wiki](https://github.com/cloudfoundry/multiapps-controller/wiki/Supported-Parameters#placeholders)
