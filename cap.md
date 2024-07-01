@@ -36,12 +36,12 @@ Specifying a route prevents the MTA deployer from creating the default one.
 
 A quick reference how placehoders are composed:
 
-| Placeholder         | Description                                                                        |
-| ------------------- | ---------------------------------------------------------------------------------- |
-| `${default-host}`   | Usually generated using the `org-name`-`space-name`-`module-name`                  |
-| `${default-domain}` | Default shared domain of the landscape, e.g. **cfapps.us10-001.hana.ondemand.com** |
-| `${default-uri}`    | Composed as `${default-host}`.`${default-domain}`                                  |
-| `${default-url}`    | Composed as `${protocol}`://`${default-uri}`                                       |
-| `${protocol}`       | Usually defaults to **https**                                                      |
+| Placeholder         | Description                                                                                                                                                                                                                                                                   |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `${default-host}`   | Usually generated using the **[org-name]-[space-name]-[module-name]**                                                                                                                                                                                                         |
+| `${default-domain}` | Default shared domain of the landscape, e.g. **cfapps.us10-001.hana.ondemand.com**                                                                                                                                                                                            |
+| `${default-uri}`    | The default URI, composed as `${host}`.`${domain}` (host-based routing). Note that `${host}` will be the same as `${default-host}`, unless specified explicitly as a parameter. Similarly, `${domain}` would be the same as `${default-domain}`, unless specified explicitly. |
+| `${default-url}`    | The default URL, composed as `${protocol}`://`${default-uri}`. Note that the `${default-uri}` placeholder is resolved as `${host}`.`${domain}` (host-based routing)                                                                                                           |
+| `${protocol}`       | Usually defaults to **https**                                                                                                                                                                                                                                                 |
 
-Source: [MultiApps Controller Wiki](https://github.com/cloudfoundry/multiapps-controller/wiki/Supported-Parameters#placeholders)
+Source: [MultiApps Controller Wiki](https://github.com/cloudfoundry/multiapps-controller/wiki/Supported-Parameters#placeholders) See [Module-Specific Parameters](https://help.sap.com/docs/btp/sap-business-technology-platform/modules?locale=en-US#module-specific-parameters) for full list of available parameters.
