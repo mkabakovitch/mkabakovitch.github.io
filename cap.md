@@ -2,7 +2,7 @@
 
 ## How to use custom routes
 
-Sometimes the default route created for a service can be not very nice, e.g. if the label (a segment delimited by `.`) in the name composed by MTA deployer `[org-name]-[space-name]-[module-name].cfapps.[region].hana.omdemand.com` is longer than 63 characters. In this case the name will be truncated and appended with a string guaranteeing uniqueness of the resulting URL. The solution (even [recommended by SAP](https://help.sap.com/docs/btp/sap-business-technology-platform/mta-routes#n1t)) is to specify the name explicitly in the MTA descriptor (`mta.yaml` file):
+Sometimes the default route created for a service can be not very nice, e.g. if the label (a segment delimited by `.`) in the name composed by MTA deployer `[org-name]-[space-name]-[module-name].cfapps.[region].hana.omdemand.com` is longer than 63 characters. In this case the name will be truncated and appended with a string guaranteeing uniqueness of the resulting URL. The solution is to specify the name explicitly in the MTA descriptor (`mta.yaml` file):
 
 Instead of using `${default-url}` for `srv-url`, which is added by default:
 
@@ -16,7 +16,7 @@ modules:
           srv-url: ${default-url}
 ```
 
-Override `srv-url` and add a route with required URL:
+Override `srv-url` and specify the route as [recommended by SAP](https://help.sap.com/docs/btp/sap-business-technology-platform/mta-routes#n1t):
 
 ```YAML{7,10-11} [mta.yaml]
 modules:
