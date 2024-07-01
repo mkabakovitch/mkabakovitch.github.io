@@ -44,4 +44,6 @@ A quick reference how placehoders are composed:
 | `${default-url}`    | The default URL, composed as `${protocol}`://`${default-uri}`. Note that the `${default-uri}` placeholder is resolved as `${host}`.`${domain}` (host-based routing)                                                                                                           |
 | `${protocol}`       | Usually defaults to **https**                                                                                                                                                                                                                                                 |
 
-Source: [MultiApps Controller Wiki](https://github.com/cloudfoundry/multiapps-controller/wiki/Supported-Parameters#placeholders) See [Module-Specific Parameters](https://help.sap.com/docs/btp/sap-business-technology-platform/modules?locale=en-US#module-specific-parameters) for full list of available parameters.
+Source: [MultiApps Controller Wiki](https://github.com/cloudfoundry/multiapps-controller/wiki/Supported-Parameters#placeholders).
+
+See [Module-Specific Parameters](https://help.sap.com/docs/btp/sap-business-technology-platform/modules?locale=en-US#module-specific-parameters) for full list of available parameters.
