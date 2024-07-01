@@ -27,7 +27,7 @@ For automated workflows, where no manual activities are required, the "[...direc
 
 Before any object (transport nodes, transport routes, etc.) is created in Cloud Transport Management, it is required to create corresponding destinations in the subaccount where Cloud Transport Management service is subscribed. These destinations which will be used by Cloud Transport Management to bind transport nodes with the target environments.
 
-### Configuring environments for integration with Cloud Management Service
+### Configuring environments for integration with Cloud Transport Management Service
 
 For every subaccount, where with Cloud Management Service deploys artefacts (a so-called **target** subaccount), a dedicated destination must be created in the subassount where with Cloud Management Service is subscribed. These destinations point to the services responsible for deployment and running in the target subaccounts:
 
