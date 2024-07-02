@@ -9,16 +9,16 @@ SAP Cloud Transport Management service is used to transport artefacts (e.g. MTA 
 These transportation activities are:
 
 - Uploading artefacts from source environment to specific transport node in Cloud Transport Management. This is achieved through API calls to the Cloud Transport Management service endpoint. Such calls can be done from a build job in the Continuous Integration and Delivery service on the Release stage (e.g. for transporting MTA archives) or from the Site Manager (e.g. for transporting content of SAP Build Work Zone, standard edition).
-- Deploying artefacts stored in transport queues of Cloud Transport Management service to target environment. This is achieved through API calls from the Cloud Transport Management service to endpoints of dedicated deployment services running in the target environment.
+- Deploying artefacts stored in transport queues of Cloud Transport Management service to target environment. This is achieved through API calls from the Cloud Transport Management service to endpoints of dedicated deployment service or content agent service instance running in the target environment.
 
-The service is a SaaS application, and in order to use it, a subscription to the service must be created. See [Configuring Entitlements to SAP Cloud Transport Management](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/configuring-entitlements-to-sap-cloud-transport-management).
+The very first step is subscribe to the SAP Cloud Transport Management service. See [Configuring Entitlements to SAP Cloud Transport Management](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/configuring-entitlements-to-sap-cloud-transport-management).
 
-In addition, in order to enable programmatic access (using API Remote Call), an instance of the service must be created in the subaccount where service is subscribed. See [Creating a Service Instance and a Service Key](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/creating-service-instance-and-service-key).
+Next, in order to enable uploading artefacts from source environment to specific transport node in Cloud Transport Management, programmatic access to the errvice must be ebabled. To achieve it, instance of the Cloud Transport Management service with the plan **standard** must be created in the subaccount where service is subscribed. See [Creating a Service Instance and a Service Key](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/creating-service-instance-and-service-key).
 
 > [!TIP]
-> Even though the subscription can be created in any subaccount, it makes sense to create subscription in a dedicated "management" subaccount, because:
+> Even though the subscription and the service instance can be created in any subaccount, it makes sense to do it in a dedicated "management" (or "infrastructure") subaccount, because:
 >
-> - Deployment of artefacts in target environments requires destinations, pointing to deployment services running in these environments, to be created in the subaccount where Cloud Transport Management service is subscribed. Keeping these "management" desinations and other "business" destinations isolated provides better overview and security of both "management" and "business" endpoints.
+> - Deployment of artefacts in target environments requires destinations, pointing to deployment service or content agent services running in these environments, to be created in the subaccount where Cloud Transport Management service is subscribed. Keeping these "management" desinations isolated from other "business" destinations provides better overview and security of both "management" and "business" endpoints.
 > - Keeping "management" and "business" services isolated provides better transparency of audit, analytics and cost control for software development and delivery infrastructure.
 
 Endpoints are configured either using service keys or as destinations in environments involved into transport management activities, depending on where they are called from.
