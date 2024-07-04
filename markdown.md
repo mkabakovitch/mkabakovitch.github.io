@@ -10,6 +10,8 @@ GitHub has a nice guide. Start with [Basic writing and formatting syntax](https:
 
 Escape fensed code blocks with quadruple backticks: ` ```` `.
 
+## Syntax highlighting in fenced code blocks
+
 Use syntax highlighting by specifying language after the opening triple backticks ` ``` `:
 
 ````
