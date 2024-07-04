@@ -40,7 +40,7 @@ export default defineConfig({
       text: 'Edit this page on GitHub'
     },
     footer: {
-      message: 'This information is public, feel free to use it.',
+      message: 'All information on this information is public. Feel free to use and share it.',
       copyright: 'Copyright © 2024 Michail Kabakovitch'
     },
     lastUpdated: {
