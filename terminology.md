@@ -11,4 +11,5 @@
 | repository | Repository, _n_         |
 | server     | Server, _m_ <-, -s>     |
 | service    | Service, _m_ <-, -s>    |
+| syntax     | Syntax, _f_             |
 | wiki       | Wiki, _n_               |
