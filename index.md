@@ -14,12 +14,15 @@ hero:
 
 features:
   - title: Dummy Node.js Package
+    icon: 📦
     details: Simple and clean template for a Node.js package repository
     link: https://github.com/mkabakovitch/dummy-nodejs-package
   - title: Dummy CAP Service
+    icon: 🧰
     details: Simple service consuming Dummy Node.js package and build with CAP
     link: https://github.com/mkabakovitch/dummy-cap-service
   - title: Tips and Tricks
+    icon:🔮
     details: Some information for improving development productivity
     link: development-environment
 ---
