@@ -22,7 +22,7 @@ features:
     details: Simple service consuming Dummy Node.js package and build with CAP
     link: https://github.com/mkabakovitch/dummy-cap-service
   - title: Tips and Tricks
-    icon:🔮
+    icon: 🔮
     details: Some information for improving development productivity
     link: development-environment
 ---
