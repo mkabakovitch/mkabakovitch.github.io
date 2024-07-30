@@ -5,7 +5,9 @@
 | English    | German                  |
 | ---------- | ----------------------- |
 | account    | Konto, _n_              |
+| API        | API, _f_                |
 | launchpad  | Launchpad, _n_          |
+| module     | Modul, _n_              |
 | platform   | Plattform, _f_ <-, -en> |
 | project    | Projekt, _n_            |
 | repository | Repository, _n_         |
