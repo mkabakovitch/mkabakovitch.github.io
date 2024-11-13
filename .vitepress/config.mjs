@@ -36,7 +36,7 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/mkabakovitch/mkabakovitch.github.io' }
     ],
     editLink: {
-      pattern: 'https://github.com/mkabakovitch/mkabakovitch.github.io/edit/main/docs/:path',
+      pattern: 'https://github.com/mkabakovitch/mkabakovitch.github.io/edit/main/:path',
       text: 'Edit this page on GitHub'
     },
     footer: {
