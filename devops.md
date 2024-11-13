@@ -13,7 +13,7 @@ These transportation activities are:
 
 The very first step is subscribe to the SAP Cloud Transport Management service. See [Configuring Entitlements to SAP Cloud Transport Management](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/configuring-entitlements-to-sap-cloud-transport-management).
 
-Next, in order to enable uploading artefacts from source environment to specific transport node in Cloud Transport Management, programmatic access to the errvice must be ebabled. To achieve it, instance of the Cloud Transport Management service with the plan **standard** must be created in the subaccount where service is subscribed. See [Creating a Service Instance and a Service Key](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/creating-service-instance-and-service-key).
+Next, in order to enable uploading artefacts from source environment to specific transport node in Cloud Transport Management, programmatic access to the service must be enabled. To achieve it, an instance of the Cloud Transport Management service with the plan **standard** must be created in the subaccount where service is subscribed. See [Creating a Service Instance and a Service Key](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/creating-service-instance-and-service-key).
 
 > [!TIP]
 > Even though the subscription and the service instance can be created in any subaccount, it makes sense to do it in a dedicated "management" (or "infrastructure") subaccount, because:
