@@ -8,7 +8,7 @@ SAP Cloud Transport Management service is used to transport artefacts (e.g. MTA 
 
 These transportation activities are:
 
-- Uploading artefacts from source environment to specific transport node in Cloud Transport Management. This is achieved through API calls to the Cloud Transport Management service endpoint. Such calls can be done from a build job in the Continuous Integration and Delivery service on the Release stage (e.g. for transporting MTA archives) or from the Site Manager (e.g. for transporting content of SAP Build Work Zone, standard edition).
+- Uploading artefacts from source environment to specific transport node in Cloud Transport Management by making API calls Cloud Transport Management service instance endpoint. For instance, calls can be done from a build job in the Continuous Integration and Delivery service on the Release stage (e.g. for transporting MTA archives) or from the Site Manager (e.g. for transporting content of SAP Build Work Zone, standard edition).
 - Deploying artefacts stored in transport queues of Cloud Transport Management service to target environment. This is achieved through API calls from the Cloud Transport Management service to endpoints of dedicated deployment service or content agent service instance running in the target environment.
 
 The very first step is subscribe to the SAP Cloud Transport Management service. See [Configuring Entitlements to SAP Cloud Transport Management](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/configuring-entitlements-to-sap-cloud-transport-management).
