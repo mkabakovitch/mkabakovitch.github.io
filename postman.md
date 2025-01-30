@@ -2,7 +2,7 @@
 
 ## How to create Postman collection based on OData metadata
 
-Install odata-openapi globally:
+Install **odata-openapi** globally:
 
 ```Shell
 npm install -g odata-openapi
