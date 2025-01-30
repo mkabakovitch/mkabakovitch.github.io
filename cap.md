@@ -54,7 +54,7 @@ This example from [CAP Documentation](https://cap.cloud.sap/docs/node.js/cds-i18
 
 ::: code-group
 
-```js{7} [srv/cat-service.js]
+```js{4} [srv/cat-service.js]
 srv.before('submitOrder', async (req) => {
   let { book: id, quantity } = req.data;
   let { stock } = await SELECT`stock`.from(Books, id);
@@ -72,7 +72,7 @@ This would work:
 
 ::: code-group
 
-```js{7} [srv/cat-service.js]
+```js{4} [srv/cat-service.js]
 srv.before('submitOrder', async (req) => {
   let { book: id, quantity } = req.data;
   let { stock } = await SELECT`stock`.from(Books, id);
