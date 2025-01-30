@@ -50,7 +50,7 @@ See [Module-Specific Parameters](https://help.sap.com/docs/btp/sap-business-tech
 
 ## How to use localized messages in TypeScript
 
-The example from [CAP Documentation](https://cap.cloud.sap/docs/node.js/cds-i18n#localized-messages) would not work in TypeScript:
+This example from [CAP Documentation](https://cap.cloud.sap/docs/node.js/cds-i18n#localized-messages) would not work in TypeScript:
 
 ::: code-group
 
@@ -68,7 +68,7 @@ ORDER_EXCEEDS_STOCK = The order of {quantity} books exceeds available stock {sto
 
 :::
 
-This works:
+This would work:
 
 ::: code-group
 
