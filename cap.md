@@ -47,3 +47,41 @@ A quick reference how placehoders are composed:
 Source: [MultiApps Controller Wiki](https://github.com/cloudfoundry/multiapps-controller/wiki/Supported-Parameters#placeholders).
 
 See [Module-Specific Parameters](https://help.sap.com/docs/btp/sap-business-technology-platform/modules?locale=en-US#module-specific-parameters) for full list of available parameters.
+
+## How to use localized messages in TypeScript
+
+The example from [CAP Documentation](https://cap.cloud.sap/docs/node.js/cds-i18n#localized-messages) would not work in TypeScript:
+
+::: code-group
+
+```properties [_i18n/messages.properties]
+ORDER_EXCEEDS_STOCK = The order of {quantity} books exceeds available stock {stock}
+```
+
+```js [srv/cat-service.js]
+srv.before('submitOrder', async (req) => {
+  let { book: id, quantity } = req.data;
+  let { stock } = await SELECT`stock`.from(Books, id);
+  if (stock < quantity) req.reject(409, 'ORDER_EXCEEDS_STOCK', { stock, quantity });
+});
+```
+
+:::
+
+This works:
+
+::: code-group
+
+```properties [_i18n/messages.properties]
+ORDER_EXCEEDS_STOCK = The order of {1} books exceeds available stock {0}
+```
+
+```js [srv/cat-service.js]
+srv.before('submitOrder', async (req) => {
+  let { book: id, quantity } = req.data;
+  let { stock } = await SELECT`stock`.from(Books, id);
+  if (stock < quantity) req.reject(409, 'ORDER_EXCEEDS_STOCK', [stock, quantity]);
+});
+```
+
+:::
