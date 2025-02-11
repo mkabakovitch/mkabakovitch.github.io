@@ -6,7 +6,7 @@ This section contains tips and tricks helping to organize a better development e
 
 In Finder, press **⌘** + **⇧** + **.** (command + shift + period) to toggle showind hidden files and folders.
 
-Source: https://lifehacker.com/tech/show-hidden-files-on-mac
+Source: [Lifehacker - Show Hidden Files on Mac](https://lifehacker.com/tech/show-hidden-files-on-mac)
 
 ## How to clean working directory
 
@@ -23,7 +23,7 @@ git clean -dxf
 > [!TIP]
 > Specify `-n` option for previewing changes: `git clean -dxfn`
 
-Source: https://git-scm.com/docs/git-clean
+Source: [Git Clean Documentation](https://git-scm.com/docs/git-clean)
 
 ## How to override theme for SAPUI5-based applications
 
@@ -32,3 +32,24 @@ Although a theme can be specified globally in the settings of Build Work Zone, i
 ```Text
 https://mysubaccount.eu10.cicd.cloud.sap/ui/index.html?sap-ui-theme=sap_horizon_dark
 ```
+
+Available themes:
+
+| Theme Name          | Technical Name   |
+| ------------------- | ---------------- |
+| Morning Horizon     | sap_horizon      |
+| Evening Horizon     | sap_horizon_dark |
+| High Contrast Black | sap_horizon_hcb  |
+| High Contrast White | sap_horizon_hcw  |
+| Quartz Light        | sap_fiori_3      |
+| Quartz Dark         | sap_fiori_3_dark |
+| High Contrast Black | sap_fiori_3_hcb  |
+| High Contrast White | sap_fiori_3_hcw  |
+| Belize              | sap_belize       |
+| Belize Deep         | sap_belize_plus  |
+| High Contrast Black | sap_belize_hcb   |
+| High Contrast White | sap_belize_hcw   |
+| Blue Crystal        | sap_bluecrystal  |
+| High Contrast Black | sap_hcb          |
+
+Source: [SAPUI5 Documentation](https://sapui5.hana.ondemand.com/#/topic/da0d2e78e5414e199507cd6365d3add2)
