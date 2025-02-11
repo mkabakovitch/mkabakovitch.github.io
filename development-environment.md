@@ -24,3 +24,11 @@ git clean -dxf
 > Specify `-n` option for previewing changes: `git clean -dxfn`
 
 Source: https://git-scm.com/docs/git-clean
+
+## How to override theme for SAPUI5-based applications
+
+Although a theme can be specified globally in the settings of Build Work Zone, is is also possible to override the theme by the using URL parameter `sap-ui-theme` as described in [SAPUI5 documentation](https://sapui5.hana.ondemand.com/#/topic/91f2d03b6f4d1014b6dd926db0e91070). E.g. for SAP CI/CD Service:
+
+```Text
+https://mysubaccount.eu10.cicd.cloud.sap/ui/index.html?sap-ui-theme=sap_horizon_dark
+```
