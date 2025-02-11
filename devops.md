@@ -4,7 +4,7 @@ This section contains information about topics related to development operations
 
 ## How to stop services after deployment with SAP Continuous Integration and Delivery Service
 
-Services in Cloud Foundry environment consume memory and disk space, which are subject to billing. In case SAP Continuous Integration and Delivery service is used only to check whether all stages of the job are successfully completed, it makes sense to stop the services after deployment. If required, the services can be started manually. There is no corresponding parameters for `Acceptance` and `Release` stages, but it is possible achieve it by running an additional command in `Additional Commands` as `Last in Stage`:
+Services in Cloud Foundry environment consume memory and disk space, which are subject to billing. In case SAP Continuous Integration and Delivery service is used only to check whether all stages of the job are successfully completed, it makes sense to stop the services after deployment. If required, the services can be started manually. There are no parameters for controlling services in `Acceptance` and `Release` stages, but it is possible stop them by specifying the following command in `Additional Commands` running as `Last in Stage`:
 
 ```Shell
 curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=v8&source=github" | tar -zx && ./cf8 login -u $btp_services_user -p $btp_services_password -a https://api.cf.eu10-004.hana.ondemand.com -o myorg -s myspace && ./cf8 stop mysrv
@@ -12,7 +12,7 @@ curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&version
 
 Unfortunately, Cloud Foundry CLI is not available in the working directory, so it has to be either downloaded or embedded into the source code repository. Luckily, `curl` is available and works fine, so it is better do download the CLI instead of burdening the source code with irrelevant artefacts. By the way, piper is available.
 
-The `$btp_services_user` and `$btp_services_password` are two environmental variables containing user name and the password automatically created when additional credentials with the name `btp_services` of type `Basic Authentication` are specified in `Additional Credentials`.
+The `$btp_services_user` and `$btp_services_password` are two automatically created environment variables containing user name and the password from credentials with the name `btp_services` of type `Basic Authentication`, which are specified in `Additional Credentials`.
 
 ## How to set up SAP Cloud Transport Management service
 
