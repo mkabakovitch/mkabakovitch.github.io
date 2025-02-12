@@ -14,6 +14,28 @@ Unfortunately, Cloud Foundry CLI is not available in the working directory, so i
 
 The `$btp_services_user` and `$btp_services_password` are two automatically created environment variables containing user name and the password from credentials with the name `btp_services` of type `Basic Authentication`, which are specified in `Additional Credentials`.
 
+## How to integrate SonarQube Cloud into SAP Continuous Integration and Delivery Service
+
+Initial configuration of the Compliance stage is described in [SAP Continuous Integration and Delivery documentation](https://help.sap.com/docs/CONTINUOUS_DELIVERY/99c72101f7ee40d0b2deb4df72ba1ad3/configure-sap-cloud-application-programming-model-job-in-job-editor?version=Cloud#compliance). However, some additional steps in both SonarQube and CI/CD Service are required to make run analysis on current branch.
+
+In SonarQube Cloud project settings, `Automatic Analysis` must be switched off:
+
+![SonarQube Analysis Type](/assets/images/sonarqube-analysis.png)
+
+This will deactivate triggering analysis on merging pull requests.
+
+In SAP Continuous Integration and Delivery Service, branch name must be specified in `Additional Variables` section of `Compliance` stage as `PIPER_branchName` variable:
+
+![Branch Name Variable](/assets/images/cicd-compliance-branch-variable.png)
+
+This will cause Piper to add `-Dsonar.branch.name` command-line parameter with the branch name (an excerpt from job logs):
+
+```Shell
+[2025-02-12T09:24:28.841Z] info  sonarExecuteScan - running command: sonar-scanner -Dsonar.organization=myorganization -Dsonar.projectVersion=1 -Dsonar.projectKey=myproject -Dsonar.branch.name=master
+```
+
+Sourcd: [SonarQube Branch Name](https://www.project-piper.io/steps/sonarExecuteScan/#branchname).
+
 ## How to set up SAP Cloud Transport Management service
 
 SAP Cloud Transport Management service is used to transport artefacts (e.g. MTA archives, content or even entire sites in SAP Build Work Zone, standard edition) between different environments.
