@@ -34,7 +34,7 @@ https://mysubaccount.eu10.cicd.cloud.sap/ui/index.html?sap-ui-theme=sap_horizon_
 ```
 
 > [!NOTE]
-> Alternatively, `sap-theme` parameter could also be used. I could not spot the difference between these two parameters.
+> Alternatively, `sap-theme` parameter could also be used. See [SAPUI5 documentation](https://sapui5.hana.ondemand.com/#/topic/e9fc648661d84ed89360bbec3ae02611) for more information.
 
 Available themes:
 
