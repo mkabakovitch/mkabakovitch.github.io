@@ -21,6 +21,7 @@ export default defineConfig({
         items: [
           { text: 'Markdown', link: '/markdown' },
           { text: 'Development Environment', link: '/development-environment' },
+          { text: 'UI5/SAPUI5/Fiori', link: '/ui5' },
         ],
       },
       {
