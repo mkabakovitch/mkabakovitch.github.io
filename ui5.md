@@ -2,7 +2,7 @@
 
 ## How to override theme for SAPUI5-based applications
 
-It is also possible to override the theme of a SAPUI5-based application by the using URL parameter `sap-ui-theme` as described in [SAPUI5 documentation](https://sapui5.hana.ondemand.com/#/topic/91f2d03b6f4d1014b6dd926db0e91070). E.g. for SAP CI/CD Service:
+It is possible to override the theme of a SAPUI5-based application by the using URL parameter `sap-ui-theme` as described in [SAPUI5 documentation](https://sapui5.hana.ondemand.com/#/topic/91f2d03b6f4d1014b6dd926db0e91070). E.g. for SAP CI/CD Service:
 
 ```Text
 https://mysubaccount.eu10.cicd.cloud.sap/ui/index.html?sap-ui-theme=sap_horizon_dark
