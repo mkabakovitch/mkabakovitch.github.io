@@ -20,7 +20,8 @@ Initial configuration of the Compliance stage is described in [SAP Continuous In
 
 In SonarQube Cloud project settings, `Automatic Analysis` must be switched off:
 
-![SonarQube Analysis Type](/assets/images/sonarqube-analysis.png)
+![SonarQube Analysis Type](/assets/images/sonarqube-analysis-light.png){.light-only}
+![SonarQube Analysis Type](/assets/images/sonarqube-analysis-dark.png){.dark-only}
 
 This will deactivate triggering analysis on merging pull requests.
 
