@@ -26,7 +26,8 @@ This will deactivate triggering analysis on merging pull requests.
 
 In SAP Continuous Integration and Delivery Service, branch name must be specified in `Additional Variables` section of `Compliance` stage as `PIPER_branchName` variable:
 
-![Branch Name Variable](/assets/images/cicd-compliance-branch-variable.png)
+![Branch Name Variable](/assets/images/cicd-compliance-branch-variable-light.png){.light-only}
+![Branch Name Variable](/assets/images/cicd-compliance-branch-variable-dark.png){.dark-only}
 
 This will cause Piper to add `-Dsonar.branch.name` command-line parameter with the branch name (an excerpt from job logs):
 
