@@ -4,6 +4,8 @@
 
 Add `html.dark .light-only` and `html:not(.dark) .dark-only` styles to `.vitepress/theme/style.css` **outside** of the the `:root` element:
 
+::: code-group
+
 ```CSS{7-12} [.vitepress/theme/style.css]
 :root {
   body {
@@ -18,6 +20,8 @@ html:not(.dark) .dark-only {
   display: none !important;
 }
 ```
+
+:::
 
 And then in markdown files:
 
