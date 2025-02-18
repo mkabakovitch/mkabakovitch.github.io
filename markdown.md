@@ -24,6 +24,16 @@ Use syntax highlighting by specifying language after the opening triple backtick
 ```
 ````
 
+Output:
+
+```JSON
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+```
+
 List of available languages: [languages.yaml](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml)
 
 ## How to use emoji and symbols on Mac
