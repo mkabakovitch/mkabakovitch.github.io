@@ -26,4 +26,9 @@ And then in markdown files:
 ![alt](/light-mode-image){.light-only}
 ```
 
+Switch between light and dark themes to see it in action:
+
+![Moon](/assets/images/full-moon.png){.dark-only}
+![Sun](/assets/images/sun.png){.light-only}
+
 Source: [VitePress Discussion](https://github.com/vuejs/vitepress/discussions/3560)
