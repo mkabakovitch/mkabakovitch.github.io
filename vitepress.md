@@ -43,15 +43,18 @@ Follow the [official guide](https://vitepress.dev/guide/extending-default-theme#
 
 To use fonts from Google Fonts, choose the font and click `Get font`:
 
-![Get font](/assets/images/google-fonts-get-font.png)
+![Get font](/assets/images/google-fonts-get-font-dark.png){.dark-only}
+![Get font](/assets/images/google-fonts-get-font-light.png){.light-only}
 
 Click `Get embed code`:
 
-![Ger embed code](/assets/images/google-fonts-get-embed-code.png)
+![Get embed code](/assets/images/google-fonts-get-embed-code-dark.png){.dark-only}
+![Get embed code](/assets/images/google-fonts-get-embed-code-light.png){.light-only}
 
 Select `@import` and click `Copy code`:
 
-![Copy Code](/assets/images/google-fonts-copy-code.png)
+![Copy code](/assets/images/google-fonts-copy-code-dark.png){.dark-only}
+![Copy code](/assets/images/google-fonts-copy-code-light.png){.light-only}
 
 Paste the copied code at the top of the `my-fonts.css` file and specify it for `--vp-font-family-base`:
 
