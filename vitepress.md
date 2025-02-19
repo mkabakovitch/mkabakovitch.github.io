@@ -41,7 +41,7 @@ Source: [VitePress Discussion](https://github.com/vuejs/vitepress/discussions/35
 
 Follow the [official guide](https://vitepress.dev/guide/extending-default-theme#using-different-fonts).
 
-To use fonts from Google Fonts, choose the font and click `Get font`:
+To use fonts from [Google Fonts](https://fonts.google.com), choose the font and click `Get font`:
 
 ![Get font](/assets/images/google-fonts-get-font-dark.png){.dark-only}
 ![Get font](/assets/images/google-fonts-get-font-light.png){.light-only}
