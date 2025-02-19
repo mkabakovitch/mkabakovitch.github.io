@@ -85,3 +85,89 @@ ORDER_EXCEEDS_STOCK = The order of {1} books exceeds available stock {0}
 ```
 
 :::
+
+## How to get actual request path and payload when calling remote services
+
+Put a breakpoint at the following line in the file `node_modules/@sap/cds/libx/_runtime/remote/Service.js`:
+
+::: code-group
+
+```JavaScript{6} [node_modules/@sap/cds/libx/_runtime/remote/Service.js]
+class RemoteService extends cds.Service {
+  init() {
+    ...
+    this.on('*', async function on_handler(req, next) {
+      ...
+      let result = await run(reqOptions, additionalOptions)
+      result = typeof query === 'object' && query.SELECT?.one && Array.isArray(result) ? result[0] : result
+      return result
+    })
+
+    return super.init()
+  }
+  ...
+}
+```
+
+:::
+
+Examples of data contained in parameters `reqOptions` and `additionalOptions`:
+
+::: code-group
+
+```JSON [reqOptions (GET)]
+{
+  method: "GET",
+  url: "/ZPP_C_ProductionOrderComponent?$select=Reservation,ReservationItem,ReservationRecordType,Material&$top=1",
+  headers: {
+    accept: "application/json,text/plain",
+    "accept-language": "en",
+    "x-correlation-id": "4f1578d5-0be9-4e65-845f-83857aaa6a0d",
+  }
+}
+```
+
+```JSON [reqOptions (POST)]
+{
+  method: "POST",
+  url: "/ZPP_C_MaterialAssignment('c575d561-d7c7-48f2-b0c1-3530fa482102')/_MaterialAssignmentComponent",
+  data: {
+    MaterialAssignment: "c575d561-d7c7-48f2-b0c1-3530fa482102",
+    Reservation: "7",
+    ReservationItem: "1",
+    ReservationRecordType: "",
+    Material: "Donut",
+  },
+  headers: {
+    accept: "application/json,text/plain",
+    "accept-language": "en",
+    "content-type": "application/json",
+    "content-length": 123,
+    "x-correlation-id": "0ae34e4d-43a3-446f-be80-5452a78b1134",
+  },
+}
+```
+
+```JavaScript [additionalOptions]
+{
+  destination: {
+    name: "ZPP_PRODUCTION_ORDER_0001",
+    url: "https://my123456-api.s4hana.cloud.sap/sap/opu/odata4/sap/zpp_api_production_order_o4/srvd_a2x/sap/zpp_production_order/0001",
+    authentication: "BasicAuthentication",
+    username: "username",
+    password: "***",
+  },
+  kind: "odata",
+  resolvedTarget: {
+    ...
+  },
+  returnType: undefined,
+  destinationOptions: {
+    useCache: true,
+  },
+}
+```
+
+:::
+
+The `password` element in `destination` contains password in plain text.
