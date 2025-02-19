@@ -36,3 +36,38 @@ Switch between light and dark themes to see it in action:
 ![Sun](/assets/images/sun.png){.light-only}
 
 Source: [VitePress Discussion](https://github.com/vuejs/vitepress/discussions/3560)
+
+## How to use custom fonts
+
+Follow the [official guide](https://vitepress.dev/guide/extending-default-theme#using-different-fonts).
+
+To use fonts from Google Fonts, choose the font and click `Get font`:
+
+![Get font](/assets/images/google-fonts-get-font.png)
+
+Click `Get embed code`:
+
+![Ger embed code](/assets/images/google-fonts-get-embed-code.png)
+
+Select `@import` and click `Copy code`:
+
+![Copy Code](/assets/images/google-fonts-copy-code.png)
+
+Paste the copied code at the top of the `my-fonts.css` file and specify it for `--vp-font-family-base`:
+
+::: code-group
+
+```CSS{1,6} [my-fonts.css]
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+
+  /* Typography */
+  --vp-font-family-base: "Poppins", 'Chinese Quotes', 'Inter var', 'Inter', ui-sans-serif,
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Helvetica, Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+```
+
+:::
