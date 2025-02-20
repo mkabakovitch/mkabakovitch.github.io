@@ -39,7 +39,7 @@ Source: [VitePress Discussion](https://github.com/vuejs/vitepress/discussions/35
 
 ## How to use custom fonts
 
-Follow the [official guide](https://vitepress.dev/guide/extending-default-theme#using-different-fonts).
+To extend default VitePress theme with custom fonts, follow [official guide](https://vitepress.dev/guide/extending-default-theme#using-different-fonts).
 
 To use fonts from [Google Fonts](https://fonts.google.com), choose the font and click `Get font`:
 
