@@ -56,7 +56,7 @@ Select `@import` and click `Copy code`:
 ![Copy code](/assets/images/google-fonts-copy-code-dark.png){.dark-only}
 ![Copy code](/assets/images/google-fonts-copy-code-light.png){.light-only}
 
-Paste the copied code at the top of the `my-fonts.css` file and specify it for `--vp-font-family-base`:
+Paste the copied code at the top of the `my-fonts.css` file, remove surrounding `<style>` elements and specify the font face in `--vp-font-family-base`:
 
 ::: code-group
 
