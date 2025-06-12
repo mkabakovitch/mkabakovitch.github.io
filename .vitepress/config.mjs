@@ -22,9 +22,10 @@ export default defineConfig({
       {
         text: 'Tips and Tricks',
         items: [
+          { text: 'Business Technology Platform', link: '/btp' },
+          { text: 'Development Environment', link: '/development-environment' },
           { text: 'Markdown', link: '/markdown' },
           { text: 'VitePress', link: '/vitepress' },
-          { text: 'Development Environment', link: '/development-environment' },
           { text: 'UI5/SAPUI5/Fiori', link: '/ui5' },
         ],
       },
