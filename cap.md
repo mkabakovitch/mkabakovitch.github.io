@@ -223,7 +223,7 @@ Data from `db/data/*.csv` files will **not** be deployed to the database file af
 > cds deploy
 ```
 
-Move **@cap-js/sqlite** from **devDependencies** to **dependencies**, add **ncp** as **devDependency** and specify **db.sqlite** in **cds.requires.db.credentials.url** in `package.json`. Add command to copy local `db.sqlite` file to folsder with generated artefacts:
+Move **@cap-js/sqlite** from **devDependencies** to **dependencies**, add **ncp** as **devDependency**, and specify **db.sqlite** in **cds.requires.db.credentials.url** in `package.json`. Add command to copy local `db.sqlite` file to folsder with generated artefacts:
 
 ::: code-group
 
@@ -238,24 +238,14 @@ Move **@cap-js/sqlite** from **devDependencies** to **dependencies**, add **ncp*
   },
   "cds" : {
     "requires": {
-      ...
       "db": { // [!code ++]
         "impl": "@cap-js/sqlite", // [!code ++]
         "credentials": { // [!code ++]
           "url": ":memory:" // [!code ++]
         }, // [!code ++]
         "kind": "sqlite" // [!code ++]
-      }, // [!code ++]
-      ...
-    },
-    "features": {
-      ...
-      "in_memory_db": true // [!code ++]
-      ...
-    },
-    ...
+      } // [!code ++]
   }
-  ...
 }
 ```
 
@@ -264,7 +254,7 @@ build-parameters:
  before-all:
 - builder: custom
   commands:
-   - npx ncp db.sqlite gen/srv
+   - npx ncp db.sqlite gen/srv // [!code ++]
 ```
 
 :::
