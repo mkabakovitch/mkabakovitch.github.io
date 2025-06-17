@@ -175,27 +175,66 @@ The `password` element in `destination` contains password in plain text.
 ## How to deploy CAP application with SQLite database
 
 ::: warning
-Usage of SQLite database in productive environment is strongly discouraged. See [SQLite in Production?](https://cap.cloud.sap/docs/guides/databases-sqlite#sqlite-in-production) in CAP documentation for more information. However, there are cased when it is feasible to use SQLite, especially during development. For example, when you must deploy your application, but you do not want to use your productive HANA instance.
+Usage of SQLite database in productive environment is strongly discouraged. See [CAP documentation](https://cap.cloud.sap/docs/guides/databases-sqlite#sqlite-in-production) for more information. However, there are cased when it is feasible to use SQLite, especially during development. For example, when you **must** deploy your application, but you do not want to use your productive database instance.
 :::
 
-There are two options for storing data in SQLite database: in a file and in memory.
+There are two options for storing data in SQLite database: **in a file** and in **memory**.
 
 ### Persisting data in memory
+
+Data from `db/data/*.csv` files will **not** be deployed to in-memory database after deployment.
+
+Move **@cap-js/sqlite** from **devDependencies** to **dependencies** and specify **:memory:** in **cds.requires.db.credentials.url** in `package.json`:
 
 ::: code-group
 
 ```JSON [package.json]
 {
-  ...
   "dependencies": {
-    ...
-    "@cap-js/sqlite": "^1.11.1", // [!code ++]
-    ...
+    "@cap-js/sqlite": "^1.11.1" // [!code ++]
   },
   "devDependencies": {
-    ...
+    "@cap-js/sqlite": "^1.11.1" // [!code --]
+  },
+  "cds" : {
+    "requires": {
+      "db": { // [!code ++]
+        "impl": "@cap-js/sqlite", // [!code ++]
+        "credentials": { // [!code ++]
+          "url": ":memory:" // [!code ++]
+        }, // [!code ++]
+        "kind": "sqlite" // [!code ++]
+      } // [!code ++]
+    },
+    "features": {
+      "in_memory_db": true // [!code ++]
+    }
+  }
+}
+```
+
+:::
+
+### Persisting data in file
+
+Data from `db/data/*.csv` files will **not** be deployed to the database file after deployment. Instead, you must deploy it before deployment:
+
+```Shell
+> cds deploy
+```
+
+Move **@cap-js/sqlite** from **devDependencies** to **dependencies**, add **ncp** as **devDependency** and specify **db.sqlite** in **cds.requires.db.credentials.url** in `package.json`. Add command to copy local `db.sqlite` file to folsder with generated artefacts:
+
+::: code-group
+
+```JSON [package.json]
+{
+  "dependencies": {
+    "@cap-js/sqlite": "^1.11.1", // [!code ++]
+  },
+  "devDependencies": {
     "@cap-js/sqlite": "^1.11.1", // [!code --]
-    ...
+    "ncp": "^2.0.0" // [!code ++]
   },
   "cds" : {
     "requires": {
@@ -218,6 +257,14 @@ There are two options for storing data in SQLite database: in a file and in memo
   }
   ...
 }
+```
+
+```YAML [mta.yaml]
+build-parameters:
+ before-all:
+- builder: custom
+  commands:
+   - npx ncp db.sqlite gen/srv
 ```
 
 :::
