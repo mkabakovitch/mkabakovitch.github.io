@@ -171,3 +171,53 @@ Examples of data contained in parameters `reqOptions` and `additionalOptions`:
 :::
 
 The `password` element in `destination` contains password in plain text.
+
+## How to deploy CAP application with SQLite database
+
+::: warning
+Usage of SQLite database in productive environment is strongly discouraged. See [SQLite in Production?](https://cap.cloud.sap/docs/guides/databases-sqlite#sqlite-in-production) in CAP documentation for more information. However, there are cased when it is feasible to use SQLite, especially during development. For example, when you must deploy your application, but you do not want to use your productive HANA instance.
+:::
+
+There are two options for storing data in SQLite database: in a file and in memory.
+
+### Persisting data in memory
+
+::: code-group
+
+```JSON [package.json]
+{
+  ...
+  "dependencies": {
+    ...
+    "@cap-js/sqlite": "^1.11.1", // [!code ++]
+    ...
+  },
+  "devDependencies": {
+    ...
+    "@cap-js/sqlite": "^1.11.1", // [!code --]
+    ...
+  },
+  "cds" : {
+    "requires": {
+      ...
+      "db": { // [!code ++]
+        "impl": "@cap-js/sqlite", // [!code ++]
+        "credentials": { // [!code ++]
+          "url": ":memory:" // [!code ++]
+        }, // [!code ++]
+        "kind": "sqlite" // [!code ++]
+      }, // [!code ++]
+      ...
+    },
+    "features": {
+      ...
+      "in_memory_db": true // [!code ++]
+      ...
+    },
+    ...
+  }
+  ...
+}
+```
+
+:::
