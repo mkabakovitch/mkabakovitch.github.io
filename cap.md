@@ -182,10 +182,6 @@ There are two options for storing data in SQLite database: **in a file** and in 
 
 ### Persisting data in memory
 
-Data from `db/data/*.csv` files will **not** be deployed to in-memory database after deployment.
-
-Move **@cap-js/sqlite** from **devDependencies** to **dependencies** and specify **:memory:** in **cds.requires.db.credentials.url** in `package.json`:
-
 ::: code-group
 
 ```JSON [package.json]
@@ -194,16 +190,17 @@ Move **@cap-js/sqlite** from **devDependencies** to **dependencies** and specify
     "@cap-js/sqlite": "^1.11.1" // [!code ++]
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^1.11.1" // [!code --]
+    "@cap-js/sqlite": "^1.11.1", // [!code --]
+    "ncp": "^2.0.0", // [!code ++]
   },
   "cds" : {
     "requires": {
       "db": { // [!code ++]
+        "kind": "sqlite", // [!code ++]
         "impl": "@cap-js/sqlite", // [!code ++]
         "credentials": { // [!code ++]
           "url": ":memory:" // [!code ++]
-        }, // [!code ++]
-        "kind": "sqlite" // [!code ++]
+        } // [!code ++]
       } // [!code ++]
     },
     "features": {
@@ -215,15 +212,24 @@ Move **@cap-js/sqlite** from **devDependencies** to **dependencies** and specify
 
 :::
 
-### Persisting data in file
+You need the [ncp](https://www.npmjs.com/package/ncp) package if you want to deploy initial data to the database (see below) and make sure your script runs in both Windows and Linux environments.
 
-Data from `db/data/*.csv` files will **not** be deployed to the database file after deployment. Instead, you must deploy it before deployment:
+Data from `db/data` folder will **not** be automatically loaded to in-memory database after deployment. If you want to load it, you need to include the files into your build artefacts: copy the files from `db/data` to `gen/srv/srv/data` folder (yes, two `srv` nesting levels). You may also copy the files from the `test/data` folder:
 
-```Shell
-> cds deploy
+::: code-group
+
+`````YAML [mta.yaml]
+build-parameters:
+  before-all:
+     - builder: custom
+       commands:
+         - npx ncp db/data gen/srv/srv/data  // [!code ++]
+         - npx ncp test/data gen/srv/srv/data // [!code ++]
 ```
 
-Move **@cap-js/sqlite** from **devDependencies** to **dependencies**, add **ncp** as **devDependency**, and specify **db.sqlite** in **cds.requires.db.credentials.url** in `package.json`. Add command to copy local `db.sqlite` file to folsder with generated artefacts:
+:::
+
+### Persisting data in file
 
 ::: code-group
 
@@ -239,22 +245,33 @@ Move **@cap-js/sqlite** from **devDependencies** to **dependencies**, add **ncp*
   "cds" : {
     "requires": {
       "db": { // [!code ++]
+        "kind": "sqlite", // [!code ++]
         "impl": "@cap-js/sqlite", // [!code ++]
         "credentials": { // [!code ++]
           "url": ":memory:" // [!code ++]
-        }, // [!code ++]
-        "kind": "sqlite" // [!code ++]
+        } // [!code ++]
       } // [!code ++]
   }
 }
 ```
 
-```YAML [mta.yaml]
+:::
+
+As in the in-memory case, you can include files from your `db/data` and `test/data` folders. Additionally, you can include the actual database file `db.sqlite`:
+
+::: code-group
+
+
+````YAML [mta.yaml]
 build-parameters:
- before-all:
-- builder: custom
-  commands:
-   - npx ncp db.sqlite gen/srv // [!code ++]
+  before-all:
+     - builder: custom
+       commands:
+         - npx ncp db/data gen/srv/srv/data  // [!code ++]
+         - npx ncp test/data gen/srv/srv/data // [!code ++]
+         - npx ncp db.sqlite gen/srv // [!code ++]
+
 ```
 
 :::
+`````
