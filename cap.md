@@ -218,7 +218,7 @@ Data from `db/data` folder will **not** be automatically loaded to in-memory dat
 
 ::: code-group
 
-`````YAML [mta.yaml]
+```YAML [mta.yaml]
 build-parameters:
   before-all:
      - builder: custom
@@ -261,8 +261,7 @@ As in the in-memory case, you can include files from your `db/data` and `test/da
 
 ::: code-group
 
-
-````YAML [mta.yaml]
+```YAML [mta.yaml]
 build-parameters:
   before-all:
      - builder: custom
@@ -274,4 +273,18 @@ build-parameters:
 ```
 
 :::
-`````
+
+## How to set an arbitrary HTTP response status code
+
+Setting error status codes in responses is straightforward:
+
+```js
+req.error(400, 'Invalid input', 'some_field');
+req.error(404, 'Not found');
+```
+
+However, setting **success** codes is not that easy. Such codes as [200](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/200) or [204](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/204) will be automatically returned by the framework depending on the response payload, but returning **arbitrary** success codes is not supported out-of-box.
+
+For example, you may want to call an unbound action implemented in your service from [SAP Job Scheduling Service](https://discovery-center.cloud.sap/protected/index.html#/serviceCatalog/job-scheduling-service) in [asynchronous mode](https://help.sap.com/docs/job-scheduling/sap-job-scheduling-service/asynchronous-mode).
+
+To be continued...
