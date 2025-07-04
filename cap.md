@@ -278,13 +278,53 @@ build-parameters:
 
 Setting error status codes in responses is straightforward:
 
-```js
+```JavaScript
 req.error(400, 'Invalid input', 'some_field');
 req.error(404, 'Not found');
 ```
 
-However, setting **success** codes is not that easy. Such codes as [200](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/200) or [204](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/204) will be automatically returned by the framework depending on the response payload, but returning **arbitrary** success codes is not supported out-of-box.
+See [`req.error()`](https://cap.cloud.sap/docs/node.js/events#req-error) method in CAP documentation.
 
-For example, you may want to call an unbound action implemented in your service from [SAP Job Scheduling Service](https://discovery-center.cloud.sap/protected/index.html#/serviceCatalog/job-scheduling-service) in [asynchronous mode](https://help.sap.com/docs/job-scheduling/sap-job-scheduling-service/asynchronous-mode).
+However, setting **success** codes is not that easy. Such codes as [`200`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/200) or [`204`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/204) will be automatically returned by the framework depending on the response payload, but returning **arbitrary** success codes is not supported.
 
-To be continued...
+For example, you may want to call an unbound action implemented in your service from [SAP Job Scheduling Service](https://discovery-center.cloud.sap/protected/index.html#/serviceCatalog/job-scheduling-service) in [asynchronous mode](https://help.sap.com/docs/job-scheduling/sap-job-scheduling-service/asynchronous-mode). In this case the action **must** return status code [`202`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/202).
+
+To set the status code, you can call [`res.sendStatus()`](https://expressjs.com/en/5x/api.html#res.sendStatus) method of the internal `Response` object from underlying **Express** instance:
+
+::: code-group
+
+```TypeScript [ExampleService.ts]
+import cds from '@sap/cds';
+import HttpUtilities from './HttpUtilities';
+
+export class ExampleService extends cds.ApplicationService {
+  init() {
+    this.on('exampleAction', this.#onExampleAction.bind(this));
+    return super.init();
+  }
+
+  async #onExampleAction(req: cds.Request): Promise<void> {
+      cds.spawn({}, async () => {
+        // Your code to execute asynchronously
+      });
+      HttpUtilities.setStatus(req, 202);
+  }
+}
+```
+
+```TypeScript [HttpUtilities.ts]
+import cds from '@sap/cds';
+
+export class HttpUtilities {
+  static setStatus(req: cds.Request, status: number): void {
+    if (typeof (req as any).res?.sendStatus === 'function') {
+      (req as any).res.sendStatus(status);
+    }
+  }
+}
+
+export default HttpUtilities;
+
+```
+
+:::
