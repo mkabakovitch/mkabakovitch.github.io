@@ -248,7 +248,7 @@ build-parameters:
         "kind": "sqlite", // [!code ++]
         "impl": "@cap-js/sqlite", // [!code ++]
         "credentials": { // [!code ++]
-          "url": ":memory:" // [!code ++]
+          "url": "db.sqlite" // [!code ++]
         } // [!code ++]
       } // [!code ++]
   }
@@ -266,9 +266,9 @@ build-parameters:
   before-all:
      - builder: custom
        commands:
-         - npx ncp db/data gen/srv/srv/data  // [!code ++]
-         - npx ncp test/data gen/srv/srv/data // [!code ++]
-         - npx ncp db.sqlite gen/srv // [!code ++]
+         - npx ncp db/data gen/srv/srv/data # [!code ++]
+         - npx ncp test/data gen/srv/srv/data # [!code ++]
+         - npx ncp db.sqlite gen/srv # [!code ++]
 
 ```
 
