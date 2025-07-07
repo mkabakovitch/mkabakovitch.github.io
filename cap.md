@@ -50,7 +50,7 @@ See [Module-Specific Parameters](https://help.sap.com/docs/btp/sap-business-tech
 
 ## How to use localized messages in TypeScript
 
-This example from [CAP Documentation](https://cap.cloud.sap/docs/node.js/cds-i18n#localized-messages) would not work in TypeScript:
+For some reasons this example from [CAP Documentation](https://cap.cloud.sap/docs/node.js/cds-i18n#localized-messages) would not work in TypeScript:
 
 ::: code-group
 
@@ -178,7 +178,7 @@ The `password` element in `destination` contains password in plain text.
 Usage of SQLite database in productive environment is strongly discouraged. See [CAP documentation](https://cap.cloud.sap/docs/guides/databases-sqlite#sqlite-in-production) for more information. However, there are cased when it is feasible to use SQLite, especially during development. For example, when you **must** deploy your application, but you do not want to use your productive database instance.
 :::
 
-There are two options for storing data in SQLite database: **in a file** and in **memory**.
+There are two options for storing data in SQLite database: in **memory** and in **file**.
 
 ### Persisting data in memory
 
