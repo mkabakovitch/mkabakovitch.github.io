@@ -74,3 +74,30 @@ Paste the copied code at the top of the `my-fonts.css` file, remove surrounding 
 ```
 
 :::
+
+## How to use colored diffs in code blocks
+
+Using [Colored Diffs in Code Blocks](https://vitepress.dev/guide/markdown#colored-diffs-in-code-blocks) is straightforward. However, it is not clear from the documentation that the instructions `[!code --]` and `[!code --]` must not be prefixed by `//`, but rather with the comment directives for the language of the current code block. So, in case of JavaScript you must use `//`, and for YAML you must use `#`:
+
+```Markdown
+build-parameters:
+  before-all:
+     - builder: custom
+       commands:
+         - npx ncp db/data gen/srv/srv/data # [!code ++]
+         - npx ncp test/data gen/srv/srv/data # [!code ++]
+         - npx ncp db.sqlite gen/srv # [!code ++]
+```
+
+This will produce the following output:
+
+```YAML [mta.yaml]
+build-parameters:
+  before-all:
+     - builder: custom
+       commands:
+         - npx ncp db/data gen/srv/srv/data # [!code ++]
+         - npx ncp test/data gen/srv/srv/data # [!code ++]
+         - npx ncp db.sqlite gen/srv # [!code ++]
+
+```
