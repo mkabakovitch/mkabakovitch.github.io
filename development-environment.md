@@ -24,3 +24,9 @@ git clean -dxf
 > Specify `-n` option for previewing changes: `git clean -dxfn`
 
 Source: [Git Clean Documentation](https://git-scm.com/docs/git-clean)
+
+## How to use emoji and symbols on Mac
+
+You can insert emoji as you type on your Mac, or use the Character Viewer to search for and enter emoji, symbols, accented letters, and characters from other languages.
+
+Source: [Use emoji and symbols on Mac](https://support.apple.com/guide/mac-help/use-emoji-and-symbols-on-mac-mchlp1560/mac).
