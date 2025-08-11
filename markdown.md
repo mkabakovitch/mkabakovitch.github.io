@@ -47,7 +47,7 @@ build-parameters:
        commands:
          - npx ncp db/data gen/srv/srv/data # [!code ++]
          - npx ncp test/data gen/srv/srv/data # [!code ++]
-         - npx ncp db.sqlite gen/srv # [!code ++]
+         - npx ncp db.sqlite gen/srv/db.sqlite # [!code ++]
 ```
 
 This will produce the following output:
@@ -59,6 +59,6 @@ build-parameters:
        commands:
          - npx ncp db/data gen/srv/srv/data # [!code ++]
          - npx ncp test/data gen/srv/srv/data # [!code ++]
-         - npx ncp db.sqlite gen/srv # [!code ++]
+         - npx ncp db.sqlite gen/srv/db.sqlite # [!code ++]
 
 ```
