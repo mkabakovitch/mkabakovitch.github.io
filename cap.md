@@ -267,7 +267,7 @@ build-parameters:
      - builder: custom
        commands:
          - npx cds deploy # [!code ++]
-         - npx ncp db.sqlite gen/srv # [!code ++]
+         - npx ncp db.sqlite gen/srv/db.sqlite # [!code ++]
 
 ```
 
