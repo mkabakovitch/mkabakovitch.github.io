@@ -257,7 +257,7 @@ build-parameters:
 
 :::
 
-As in the in-memory case, you can include files from your `db/data` and `test/data` folders. Additionally, you can include the actual database file `db.sqlite`:
+Now, instead of the files from your `db/data` folder you include the actual database file `db.sqlite`:
 
 ::: code-group
 
@@ -266,19 +266,12 @@ build-parameters:
   before-all:
      - builder: custom
        commands:
-         - npx ncp db/data gen/srv/srv/data # [!code ++]
-         - npx ncp test/data gen/srv/srv/data # [!code ++]
+         - npx cds deploy # [!code ++]
          - npx ncp db.sqlite gen/srv # [!code ++]
 
 ```
 
 :::
-
-In order to create `db.sqlite` file in your project run:
-
-```Shell
-cds deploy
-```
 
 ## How to set an arbitrary HTTP response status code
 
