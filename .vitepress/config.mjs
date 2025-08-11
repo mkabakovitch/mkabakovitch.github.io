@@ -13,28 +13,23 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Get Started',
+        text: 'About',
         items: [
           { text: 'About', link: '/about' },
           { text: 'Acknowledgements', link: '/acknowledgements' },
         ],
       },
       {
-        text: 'Tips and Tricks',
-        items: [
-          { text: 'Business Technology Platform', link: '/btp' },
-          { text: 'Development Environment', link: '/development-environment' },
-          { text: 'Markdown', link: '/markdown' },
-          { text: 'VitePress', link: '/vitepress' },
-          { text: 'UI5/SAPUI5/Fiori', link: '/ui5' },
-        ],
-      },
-      {
         text: 'Knowledge Base',
         items: [
+          { text: 'BTP', link: '/btp' },
           { text: 'CAP', link: '/cap' },
+          { text: 'Development Environment', link: '/development-environment' },
           { text: 'DevOps', link: '/devops' },
+          { text: 'Markdown', link: '/markdown' },
           { text: 'Postman', link: '/postman' },
+          { text: 'VitePress', link: '/vitepress' },
+          { text: 'UI5/SAPUI5/Fiori', link: '/ui5' },
         ],
       },
     ],
