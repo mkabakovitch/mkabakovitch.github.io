@@ -274,6 +274,12 @@ build-parameters:
 
 :::
 
+In order to create `db.sqlite` file in your project run:
+
+```Shell
+cds deploy
+```
+
 ## How to set an arbitrary HTTP response status code
 
 Setting error status codes in responses is straightforward:
